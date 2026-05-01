@@ -35,7 +35,9 @@ export default function SignUp() {
         router.push("/");
       }
     } catch (err: unknown) {
-      setFormError(err instanceof Error ? err.message : "Something went wrong.");
+      setFormError(
+        err instanceof Error ? err.message : "Something went wrong.",
+      );
     } finally {
       setLoading(false);
     }
@@ -56,7 +58,9 @@ export default function SignUp() {
           <p className="text-2xl font-bold text-center">Sign Up</p>
 
           {formError && (
-            <div className="alert alert-error rounded-xl text-sm">{formError}</div>
+            <div className="alert alert-error rounded-xl text-sm">
+              {formError}
+            </div>
           )}
 
           <label className="flex flex-col gap-1">
@@ -108,7 +112,7 @@ export default function SignUp() {
           </button>
           <p className="text-center text-sm">
             Already have an account?{" "}
-            <a href="/" className="link link-primary">
+            <a href="/signin" className="link link-primary">
               Sign In
             </a>
           </p>

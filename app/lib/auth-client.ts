@@ -1,15 +1,17 @@
 import { createAuthClient } from "better-auth/react";
+import { lastLoginMethodClient } from "better-auth/client/plugins";
 
 export const authClient = createAuthClient({
   baseURL: process.env.NEXT_PUBLIC_BETTER_AUTH_URL!,
+  plugins: [lastLoginMethodClient()],
 });
 
-export const signIn = async() => {
+export const signIn = async () => {
   const data = await authClient.signIn.social({
     provider: "google",
   });
 };
 
-export const signOut = async() => {
+export const signOut = async () => {
   const data = await authClient.signOut();
 };

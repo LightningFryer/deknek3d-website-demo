@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 export default function Home() {
   const { data: session, error } = authClient.useSession();
+  const lastMethod = authClient.getLastUsedLoginMethod();
 
   useEffect(() => {
     if (session?.user) {
@@ -57,6 +58,14 @@ export default function Home() {
               <>
                 <p>Name: {session.user.name}</p>
                 <p>Email: {session.user.email}</p>
+                <p>
+                  Current Login Method:{" "}
+                  {lastMethod === "email"
+                    ? "Email and Password"
+                    : lastMethod === "google"
+                      ? "Google OAuth"
+                      : "Unknown"}
+                </p>
                 <p>
                   Session Expiry: {session.session?.expiresAt.toDateString()}
                 </p>

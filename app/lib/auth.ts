@@ -3,6 +3,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "../db";
 import * as schema from "../../auth-schema";
 import { config } from "dotenv";
+import { lastLoginMethod } from "better-auth/plugins";
 config({ path: ".env" });
 
 export const auth = betterAuth({
@@ -21,4 +22,5 @@ export const auth = betterAuth({
     provider: "pg",
     schema,
   }),
+  plugins: [lastLoginMethod()],
 });

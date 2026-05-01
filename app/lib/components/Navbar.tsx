@@ -18,9 +18,9 @@ export default function Navbar() {
               Sign Out
             </button>
           ) : (
-            <button className="btn btn-lg rounded-xl" onClick={signIn}>
+            <a href="/signin" className="btn btn-lg rounded-xl">
               Sign In
-            </button>
+            </a>
           )}
         </div>
       </div>
