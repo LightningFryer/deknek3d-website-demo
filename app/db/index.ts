@@ -4,5 +4,8 @@ import postgres from 'postgres';
 
 config({ path: '.env' });
 
-const client = postgres(process.env.DATABASE_URL!);
+// Disable prepared statements for Supabase Transaction Pooler (PgBouncer) on Vercel
+const client = postgres(process.env.DATABASE_URL!, {
+  prepare: false,
+});
 export const db = drizzle({ client });
