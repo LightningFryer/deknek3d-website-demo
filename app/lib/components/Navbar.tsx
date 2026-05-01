@@ -14,7 +14,10 @@ export default function Navbar() {
 
         <div className="flex flex-row gap-x-4">
           {session?.user ? (
-            <button className="btn btn-lg rounded-xl" onClick={signOut}>
+            <button
+              className="btn btn-lg btn-error rounded-xl"
+              onClick={signOut}
+            >
               Sign Out
             </button>
           ) : (

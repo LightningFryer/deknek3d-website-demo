@@ -27,6 +27,12 @@ export default function Home() {
               <p className="text-lg">Welcome, {session.user.name}!</p>
               <div className="flex flex-row gap-4">
                 <button
+                  className="btn btn-lg btn-success rounded-xl"
+                  onClick={() => (window.location.href = "/database")}
+                >
+                  Go to Database
+                </button>
+                <button
                   className="btn btn-lg btn-error rounded-xl"
                   onClick={signOut}
                 >
