@@ -32,9 +32,6 @@ export default function Home() {
                 >
                   Sign Out
                 </button>
-                <a href="/tech-stack" className="btn btn-lg rounded-xl">
-                  Tech Stack
-                </a>
               </div>
             </>
           ) : (
@@ -45,9 +42,6 @@ export default function Home() {
               <div className="flex flex-row gap-4">
                 <a href="/signin" className="btn btn-lg btn-primary rounded-xl">
                   Sign In
-                </a>
-                <a href="/tech-stack" className="btn btn-lg rounded-xl">
-                  Tech Stack
                 </a>
               </div>
             </>
