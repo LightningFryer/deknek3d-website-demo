@@ -1,7 +1,15 @@
-import { createAuthClient } from "better-auth/react"
-import { config } from 'dotenv';
-config({ path: '.env' });
+import { createAuthClient } from "better-auth/react";
 
 export const authClient = createAuthClient({
-    baseURL: process.env.BETTER_AUTH_URL!
-})
+  baseURL: process.env.NEXT_PUBLIC_BETTER_AUTH_URL!,
+});
+
+export const signIn = async() => {
+  const data = await authClient.signIn.social({
+    provider: "google",
+  });
+};
+
+export const signOut = async() => {
+  const data = await authClient.signOut();
+};
