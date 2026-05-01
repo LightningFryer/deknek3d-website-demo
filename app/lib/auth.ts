@@ -7,6 +7,9 @@ config({ path: ".env" });
 
 export const auth = betterAuth({
   baseURL: process.env.BETTER_AUTH_URL!,
+  emailAndPassword: {
+    enabled: true,
+  },
   socialProviders: {
     google: {
       prompt: "select_account",

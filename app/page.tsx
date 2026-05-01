@@ -42,12 +42,9 @@ export default function Home() {
                 Sign In to get started or view the Tech Stack!
               </p>
               <div className="flex flex-row gap-4">
-                <button
-                  className="btn btn-lg btn-primary rounded-xl"
-                  onClick={signIn}
-                >
+                <a href="/signin" className="btn btn-lg btn-primary rounded-xl">
                   Sign In
-                </button>
+                </a>
                 <a href="/tech-stack" className="btn btn-lg rounded-xl">
                   Tech Stack
                 </a>
@@ -56,8 +53,7 @@ export default function Home() {
           )}
           <div className="flex flex-col w-full items-center gap-2 border border-base-300 bg-base-200 drop-shadow-md rounded-xl p-4">
             <p className="text-2xl font-bold">Session Details:</p>
-            {/* I want the name, email and session expiry, and profile picture of the user neatly displayed here   if session is available */}
-            {session?.user && (
+            {session?.user ? (
               <>
                 <p>Name: {session.user.name}</p>
                 <p>Email: {session.user.email}</p>
@@ -65,12 +61,16 @@ export default function Home() {
                   Session Expiry: {session.session?.expiresAt.toDateString()}
                 </p>
                 <p>Session ID: {session.session?.id}</p>
-                <img
-                  src={session.user.image!}
-                  alt={session.user.name}
-                  className="w-16 h-16 rounded-full"
-                />
+                {session.user.image && (
+                  <img
+                    src={session.user.image}
+                    alt={session.user.name}
+                    className="w-16 h-16 rounded-full"
+                  />
+                )}
               </>
+            ) : (
+              <p>No session found.</p>
             )}
           </div>
         </div>
